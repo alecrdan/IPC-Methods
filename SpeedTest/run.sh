@@ -1,2 +1,2 @@
 # Start client and server
- node unix-server.js & python3 unix-client.py
+ node process_a.js & python3 process_b.py
