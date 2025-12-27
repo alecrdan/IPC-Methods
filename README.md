@@ -1,42 +1,20 @@
 # IPC Methods
 
-This repository explores various Inter-Process Communication (IPC) methods, providing examples and explanations for each technique.
+This repository currently contains a focused IPC benchmark that compares file transfer speed over a TCP port versus a Unix domain socket.
 
-## Table of Contents
+## Contents
 
-- [Overview](#overview)
-- [IPC Methods Covered](#ipc-methods-covered)
-- [Getting Started](#getting-started)
-- [Contributing](#contributing)
-- [License](#license)
+- `SpeedTest/`: Python sender/receiver pairs that transfer a 10 GiB file over TCP (`port/`) and UDS (`unix_socket/`), plus a helper script to generate the test file.
 
-## Overview
+## Quick Start
 
-Inter-Process Communication (IPC) enables processes to communicate and share data. This project demonstrates common IPC mechanisms with code samples and documentation.
-
-## IPC Methods Covered
-
-- Pipes
-- Message Queues
-- Shared Memory
-- Sockets
-- Signals
-
-## Getting Started
-
-Clone the repository:
+From the repo root:
 
 ```bash
-git clone https://github.com/yourusername/ipc-methods.git
-cd ipc-methods
+cd SpeedTest
+./run.sh
 ```
 
-Follow instructions in each method's directory to run examples.
-
-## Contributing
-
-Contributions are welcome! Please open issues or submit pull requests.
-
-## License
-
-This project is licensed under the MIT License.
+Notes:
+- `SpeedTest/run.sh` generates `SpeedTest/10gb_file.txt` if it does not exist, then runs both benchmarks.
+- The 10 GiB file is large; adjust `DEFAULT_SIZE_BYTES` in `SpeedTest/utils/generate_10gb_txt.py` if needed.
